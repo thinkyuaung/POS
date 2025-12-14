@@ -57,7 +57,7 @@ class CheckoutController extends Controller
             $paymentService = $paymentGateways->firstWhere('code', $gatewayCode);
             $orderService = new OrderService();
             $order = $orderService->createOrder($request, $cart);
-
+            Session::forget('cart');
             //$order = $paymentService->createOrder($amount, 'USD');
             return redirect()->intended(route('xylo.home'));
             // return response()->json([
