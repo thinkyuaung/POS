@@ -8,11 +8,11 @@
         }
     @endphp
 
-    <div class="top-bar w-100 bg-light py-1 header-top-bar">
+    {{-- <div class="top-bar w-100 bg-light py-1 header-top-bar">
         <div class="text-center small">
-            {{ __('store.header.top_bar_message') }} 
+             Free shipping on orders
         </div>
-    </div>  
+    </div>   --}}
 
     <div class="container py-3">
         <!-- Row 2: Logo Left / Search Right -->
@@ -25,7 +25,7 @@
             <div class="col-md-8 col-6 text-end">
                 <form class="d-flex justify-content-end" action="{{ url('/search') }}" method="GET">
                     <div class="input-group search-input-width">
-                        <input type="text" class="form-control" id="search-input"  name="q" placeholder="{{ __('store.header.search_placeholder') }}">
+                        <input type="text" class="form-control" id="search-input"  name="q" placeholder="Search for a product">
                         <button type="submit" class="btn btn-outline-secondary search-style"><i class="fa fa-search"></i></button>
                         <div id="search-suggestions" class="dropdown-menu show w-100 mt-5 d-none"></div>
                     </div>
@@ -44,7 +44,7 @@
                             @foreach ($headerMenu->menuItems as $menuItem)
                                 <li class="nav-item">
                                     <a class="nav-link menu-text-color" href="{{ url($menuItem->slug) }}">
-                                        {{ $menuItem->translation->title ?? 'No Translation' }}
+                                        {{ $menuItem->slug ?? 'No Translation' }}
                                     </a>
                                 </li>
                             @endforeach

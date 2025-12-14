@@ -18,18 +18,21 @@ class MenuItem extends Model
 
     public function menuItemTranslations()
     {
-        return $this->hasMany(MenuItemTranslation::class);
+       // return $this->hasMany(MenuItemTranslation::class);
+       return ;
     }
 
     public function translations()
     {
-        return $this->hasMany(MenuItemTranslation::class);
+        //return $this->hasMany(MenuItemTranslation::class);
+        return ;
     }
 
     public function translation()
     {
-        return $this->hasOne(MenuItemTranslation::class)
-            ->where('language_code', app()->getLocale());
+        // return $this->hasOne(MenuItemTranslation::class)
+        //     ->where('language_code', app()->getLocale());
+        return ;
     }
 
     public function children()

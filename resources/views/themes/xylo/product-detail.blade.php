@@ -7,7 +7,7 @@
 <section class="breadcrumb-section">
     <div class="container">
         <div class="breadcrumbs" aria-label="breadcrumb">
-            <a href="{{ url('/') }}">{{ __('store.product_detail.home') }}</a>
+            <a href="{{ url('/') }}">Home</a>
             <i class="fa fa-angle-right"></i>
             @foreach($breadcrumbs as $category)
                 <a href="{{ url('category/' . $category->slug) }}">
@@ -34,7 +34,7 @@
             </div>
             <div class="col-md-6 pro-textarea">
                 @if ($inStock)
-                    <div id="product-stock" class="mb-2 mt-3 btnss">{{ __('store.product_detail.in_stock') }}</div>
+                    <div id="product-stock" class="mb-2 mt-3 btnss">IN STOCK</div>
                 @else
                     <div id="product-stock" class="mb-2 mt-3 btnss text-danger">OUT OF STOCK</div>
                 @endif
@@ -51,7 +51,7 @@
                             <i class="fa-regular fa-star text-muted"></i>
                         @endif
                     @endfor
-                    <span class="spanstar"> ({{ $product->reviews_count }} {{ __('store.product_detail.customer_reviews') }})</span>
+                    <span class="spanstar"> ({{ $product->reviews_count }} Customer Reviews)</span>
                 </div>
                 <div class="d-flex align-items-center mb-3">
                 <h1 class="sec-heading mb-0 me-3">{{ $product->translation->name }}</h1>
@@ -126,7 +126,7 @@
                         <input type="text" id="qty" value="1">
                         <button onclick="changeQty(1)">+</button>
                     </div>
-                    <button class="add-to-cart read-more" onclick="addToCart({{ $product->id }}, '{{ $product->product_type }}')">{{ __('store.product_detail.add_to_cart') }}</button>
+                    <button class="add-to-cart read-more" onclick="addToCart({{ $product->id }}, '{{ $product->product_type }}')">Add to Cart</button>
                 </div>
 
             </div>
@@ -142,11 +142,11 @@
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
             <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description"
-                    type="button" role="tab" aria-controls="description" aria-selected="true">{{ __('store.product_detail.description') }}</button>
+                    type="button" role="tab" aria-controls="description" aria-selected="true">Description</button>
           </li>
           <li class="nav-item" role="presentation">
             <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews"
-                    type="button" role="tab" aria-controls="reviews" aria-selected="false">{{ __('store.product_detail.reviews') }} ({{ $product->reviews_count }})</button>
+                    type="button" role="tab" aria-controls="reviews" aria-selected="false">Reviews ({{ $product->reviews_count }})</button>
           </li>
         </ul>
 
@@ -178,10 +178,10 @@
                         </div>
 
                         {{-- Optional Review Text --}}
-                        <div class="mb-3 mt-3">
+                        {{-- <div class="mb-3 mt-3">
                             <label>{{ __('store.product_detail.review_optional') }}</label>
                             <textarea name="review" class="form-control" rows="3"></textarea>
-                        </div>
+                        </div> --}}
 
                         <button class="btn btn-primary">{{ __('store.product_detail.submit_review_btn') }}</button>
                     </form>

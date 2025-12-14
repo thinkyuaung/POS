@@ -70,7 +70,7 @@ class CartController extends Controller
         Session::put('cart_count', array_sum(array_column($cart, 'quantity')));
 
         return response()->json([
-            'message' => __('store.product_detail.cart_success'),
+            'message' =>'Product added to cart successfully.',
             'cart' => $cart,
             'cart_count' => Session::get('cart_count'),
         ]);

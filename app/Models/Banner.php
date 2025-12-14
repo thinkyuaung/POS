@@ -26,6 +26,6 @@ class Banner extends Model
 
     public function translation()
     {
-        return $this->hasOne(BannerTranslation::class)->where('language_code', App::getLocale());
+        return ;
     }
 }

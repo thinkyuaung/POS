@@ -18,13 +18,15 @@ class Category extends Model
 
     public function translations()
     {
-        return $this->hasMany(CategoryTranslation::class);
+        //return $this->hasMany(CategoryTranslation::class);
+        return ;
     }
 
     public function translation()
     {
-        return $this->hasOne(CategoryTranslation::class)
-            ->where('language_code', App::getLocale());
+        // return $this->hasOne(CategoryTranslation::class)
+        //     ->where('language_code', App::getLocale());
+        return ;
     }
 
     public function parent()

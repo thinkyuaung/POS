@@ -8,18 +8,24 @@
             <div>
                 <div class="row h-100 align-items-center">
                     <div class="col-md-6">
-                        <h1 class="mt-5"><span>{{ $banner->translation ? $banner->translation->title : $banner->title }}</span>
+                        <h1 class="mt-5"><span>{{  $banner->title }}</span>
                         </h1>
-                        <p class="mt-3 mb-4">{{ __('store.home.banner_text') }}</p>
-                       <a href="{{ route('shop.index') }}" class="btn btn-primary">{{ __('store.home.shop_now') }}</a>
+                        <p class="mt-3 mb-4">Explore the biggest variety of sneakers, shoes, and streetwear trends.</p>
+                       <a href="{{ route('shop.index') }}" class="btn btn-primary">Shop Now</a>
 
-                        <div class="mt-5">
+                        {{-- <div class="mt-5">
                             <img src="assets/images/slide-smallimages.png" alt="" style="width: 200px;">
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="col-md-6">
-                        <div class="rightimg-banner rightimg-banner1">
-                            <img src="{{ Storage::url(optional($banner->translation)->image_url ?? 'default.jpg') }}" class="img-fluid shoes-img" alt="{{ $banner->translation ? $banner->translation->title : $banner->title }}">
+                        <div class="">
+                            
+                            <img src="{{ asset('images/default.jpg') }}" class="img-fluid shoes-img" style="
+                                width: 620px;
+                                height: 620px;
+                                border-radius: 50%;
+                                object-fit: cover;
+                            ">
                         </div>
                     </div>
                 </div>
@@ -28,7 +34,7 @@
         </div>
     </section>
     {{-- Banner Section End --}}
-    <section class="cat-slider animate-on-scroll">
+    {{-- <section class="cat-slider animate-on-scroll">
         <div class="container">
             <h2 class="text-start pb-5 sec-heading">{{ __('store.home.explore_popular_categories') }}</h2>
             <div class="category-slider">
@@ -36,7 +42,7 @@
                 <div>
                     <div class="cat-card">
                         <a href="{{ route('category.show', $category->slug) }}">
-                            <h3>{{ $category->translation->name ?? 'No Translation' }}</h3>
+                            <h3>{{ $category->name ?? 'No Translation' }}</h3>
                             <div class="catcard-img">
                                 <img src="{{ Storage::url(optional($category->translation)->image_url ?? 'default.jpg') }}" alt="{{ $category->translation->name ?? 'No Translation' }}">
                             </div>
@@ -46,9 +52,9 @@
                 @endforeach
             </div>
         </div>
-    </section>
+    </section> --}}
 
-    <section class="trending-products animate-on-scroll">
+    {{-- <section class="trending-products animate-on-scroll">
         <div class="container position-relative">
             <h1 class="text-start pb-5 sec-heading">{{ __('store.home.trending_products') }}</h1>
 
@@ -102,7 +108,7 @@
                 <button class="next"><i class="fa-solid fa-chevron-right"></i></button>
             </div>
         </div>
-    </section>
+    </section> --}}
 
 
     <section class="sale-banner pt-5 pb-5 animate-on-scroll">
@@ -111,24 +117,24 @@
 
     <section class="products-home py-5 animate-on-scroll">
         <div class="container">
-            <h1 class="sec-heading mb-5">{{ __('store.home.featured_products') }}</h1>
+            <h1 class="sec-heading mb-5">Featured Products</h1>
             <div class="row">
                 @foreach ($products as $product)
                 <div class="col-md-3">
                     <div class="product-card">
                         <div class="product-img">
-                            <img src="{{ Storage::url(optional($product->thumbnail)->image_url ?? 'default.jpg') }}" alt="{{ $product->translation->name ?? 'Product Name Not Available' }}">
+                            <img src="{{ Storage::url(optional($product->thumbnail)->image_url ?? 'default.jpg') }}" >
                             <button class="wishlist-btn"><i class="fa-solid fa-heart"></i></button>
                         </div>
                         <div class="product-info mt-4">
                             <div class="top-info">
-                                <div class="reviews"><i class="fa-solid fa-star"></i>({{ $product->reviews_count }} {{ __('store.home.reviews') }})</div>
+                                <div class="reviews"><i class="fa-solid fa-star"></i>({{ $product->reviews_count }} Reviews)</div>
                             </div>
                             <div class="bottom-info">
                                 <div class="left">
                                     <h3>
                                         <a href="{{ route('product.show', $product->slug) }}" class="product-title">
-                                            {{ $product->translation->name ?? 'Product Name Not Available' }}
+                                            {{ $product->name ?? 'Product Name Not Available' }}
                                         </a>
                                     </h3>
                                     <p class="price">
@@ -154,7 +160,7 @@
             </div>
 
             <div class="view-button text-center mt-4">
-                <a href="{{ route('shop.index') }}" class="read-more pe-4 ps-4">{{ __('store.home.view_all') }}</a>
+                <a href="{{ route('shop.index') }}" class="read-more pe-4 ps-4">View All</a>
             </div>
 
         </div>
@@ -162,7 +168,7 @@
 
     <section class="why-choose-us py-5 animate-on-scroll">
         <div class="container">
-            <h1 class="sec-heading text-start mb-5">{{ __('store.home.why_choose_us') }}</h1>
+            <h1 class="sec-heading text-start mb-5">Why Choose Us</h1>
             <div class="row">
                 <!-- Feature Box 1 -->
                 <div class="col-md-3">
@@ -170,8 +176,8 @@
                         <div class="feature-icon">
                             <img src="https://i.ibb.co/WNQXhLnP/choose-icon1.png" alt="">
                         </div>
-                        <h3>{{ __('store.home.fast_delivery_title') }}</h3>
-                        <p>{{ __('store.home.fast_delivery_text') }}</p>
+                        <h3>Fast Delivery</h3>
+                        <p>We deliver your orders quickly and safely, right to your doorstep.</p>
                     </div>
                 </div>
                 <!-- Feature Box 2 -->
@@ -180,8 +186,8 @@
                         <div class="feature-icon">
                             <img src="https://i.ibb.co/FkmgGPrr/choose-icon2.png" alt="">
                         </div>
-                        <h3>{{ __('store.home.customer_support_title') }}</h3>
-                        <p>{{ __('store.home.customer_support_text') }}</p>
+                        <h3>Customer Support</h3>
+                        <p>Our support team is always here to assist you anytime, anywhere.</p>
                     </div>
                 </div>
                 <!-- Feature Box 3 -->
@@ -190,8 +196,8 @@
                         <div class="feature-icon">
                             <img src="https://i.ibb.co/CffNqX9/choose-icon3.png" alt="">
                         </div>
-                        <h3>{{ __('store.home.trusted_worldwide_title') }}</h3>
-                        <p>{{ __('store.home.trusted_worldwide_text') }}</p>
+                        <h3>Trusted Worldwide</h3>
+                        <p>Thousands of satisfied customers, excellent reviews, and high ratings.</p>
                     </div>
                 </div>
                 <!-- Feature Box 4 -->
@@ -200,8 +206,8 @@
                         <div class="feature-icon">
                             <img src="https://i.ibb.co/XPvjQGG/choose-icon4.png" alt="">
                         </div>
-                        <h3>{{ __('store.home.ten_years_services_title') }}</h3>
-                        <p>{{ __('store.home.ten_years_services_text') }}</p>
+                        <h3>10 Years Services</h3>
+                        <p>Over 10 years of trusted service delivering quality and satisfaction.</p>
                     </div>
                 </div>
             </div>

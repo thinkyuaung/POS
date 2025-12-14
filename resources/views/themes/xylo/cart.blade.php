@@ -7,9 +7,9 @@
     <section class="breadcrumb-section">
         <div class="container">
             <div class="breadcrumbs" aria-label="breadcrumb">
-                <a href="{{ url('/') }}">{{ __('store.cart.breadcrumb_home') }}</a>
+                <a href="{{ url('/') }}">Home</a>
                 <i class="fa fa-angle-right"></i>
-                <span>{{ __('store.cart.breadcrumb_cart') }}</span>
+                <span>Cart</span>
             </div>
         </div>
     </section>
@@ -19,17 +19,17 @@
         <div class="row">
             <div class="col-md-9">
                 @if(empty($cart))
-                    <p class="alert alert-warning">{{ __('store.cart.empty_cart') }}</p>
+                    <p class="alert alert-warning">Your cart is empty.</p>
                 @else
                 <div class="table-responsive">
                     <table class="w-100 table">
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>{{ __('store.cart.product') }}</th>
-                                <th>{{ __('store.cart.price') }}</th>
-                                <th>{{ __('store.cart.quantity') }}</th>
-                                <th>{{ __('store.cart.subtotal') }}</th>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Subtotal</th>
                             </tr>
                         </thead>
                         
@@ -117,17 +117,17 @@
                 </div>
                 @endif
                 <div class="btn-group mt-4">
-                    <a href="{{ route('xylo.home') }}" class="btn-light">{{ __('store.cart.continue_shopping') }}</a>
-                    <a href="#" class="read-more update-cart">{{ __('store.cart.update_cart') }}</a>
+                    <a href="{{ route('xylo.home') }}" class="btn-light">Continue Shopping</a>
+                    <a href="#" class="read-more update-cart">Update Cart</a>
                 </div>
             </div>
 
             <div class="col-md-3">
                 <div class="cart-box">
-                    <h3 class="cart-heading">{{ __('store.cart.cart_totals') }}</h3>
+                    <h3 class="cart-heading">Cart totals</h3>
 
                     <div class="row border-bottom pb-2 mb-2 mt-4">
-                        <div class="col-6 col-md-4">{{ __('store.cart.subtotal_label') }}</div>
+                        <div class="col-6 col-md-4">Subtotal</div>
                         <div class="col-6 col-md-8 text-end">{{ $currency->symbol }}{{ number_format($total, 2) }}</div>
                     </div>
 
@@ -161,16 +161,16 @@
                     @endif
 
                     <div class="row border-bottom pb-2 mb-2">
-                        <div class="col-6 col-md-4">{{ __('store.cart.total_label') }}</div>
+                        <div class="col-6 col-md-4">Total</div>
                         <div class="col-6 col-md-8 text-end"><span>{{ $currency->symbol }}{{ number_format($finalTotal, 2) }}</span></div>
                     </div>
 
                     <div class="mt-4">
-                        <a href="{{ route('checkout.index') }}" class="proceed-to-checkout d-block text-center">{{ __('store.cart.proceed_to_checkout') }}</a>
+                        <a href="{{ route('checkout.index') }}" class="proceed-to-checkout d-block text-center">Proceed to checkout</a>
                     </div>
                 </div>
 
-                <div class="coupon-box mt-4">
+                {{-- <div class="coupon-box mt-4">
                     <h3 class="cart-heading mb-4">{{ __('store.cart.coupon_heading') }}</h3>
 
                     <form id="applyCouponForm">
@@ -180,7 +180,7 @@
                         </div>
                         <button type="submit" class="btn-light d-block text-center w-100">{{ __('store.cart.apply_coupon') }}</button>
                     </form>
-                </div>
+                </div> --}}
 
             </div>
         </div>

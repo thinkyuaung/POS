@@ -16,10 +16,10 @@ class StoreMenuComposer
             $headerMenu = Menu::where('status', 1)
                 ->with([
                     'menuItems' => function ($query) use ($locale) {
-                        $query->orderBy('order_number', 'asc')
-                            ->with(['translation' => function ($query) use ($locale) {
-                                $query->where('language_code', $locale);
-                            }]);
+                        $query->orderBy('order_number', 'asc');
+                            // ->with(['translation' => function ($query) use ($locale) {
+                            //     $query->where('language_code', $locale);
+                            // }]);
                     },
                 ])
                 ->first();
