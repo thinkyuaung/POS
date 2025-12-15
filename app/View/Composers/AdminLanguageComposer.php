@@ -15,9 +15,9 @@ class AdminLanguageComposer
             $view->with('menu', Menu::first());
         }
 
-        if (Schema::hasTable('languages')) {
-            $activeLanguages = Language::where('active', 1)->get();
-            $view->with('activeLanguages', $activeLanguages);
-        }
+        // if (Schema::hasTable('languages')) {
+        //     $activeLanguages = Language::where('active', 1)->get();
+        //     $view->with('activeLanguages', $activeLanguages);
+        // }
     }
 }
