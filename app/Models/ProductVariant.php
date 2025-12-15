@@ -30,8 +30,8 @@ class ProductVariant extends Model
     }
 
     public function translations()
-    {
-        return $this->hasMany(ProductVariantTranslation::class);
+    {return ;
+        //return $this->hasMany(ProductVariantTranslation::class);
     }
 
     public function images()

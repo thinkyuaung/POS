@@ -15,14 +15,14 @@ class Brand extends Model
     protected $fillable = ['slug', 'logo_url', 'status'];
 
     public function translations()
-    {
-        return $this->hasMany(BrandTranslation::class);
+    {return ;
+        //return $this->hasMany(BrandTranslation::class);
     }
 
     public function translation()
-    {
-        return $this->hasOne(BrandTranslation::class)
-            ->where('locale', App::getLocale());
+    {return ;
+        // return $this->hasOne(BrandTranslation::class)
+        //     ->where('locale', App::getLocale());
     }
 
     public function products()

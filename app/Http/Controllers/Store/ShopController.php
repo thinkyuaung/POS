@@ -59,8 +59,8 @@ class ShopController extends Controller
             })
             ->paginate(12);
 
-        $brands = Brand::with('translation')->withCount('products')->get();
-        $categories = Category::with('translation')->withCount('products')->get();
+        $brands = Brand::withCount('products')->get();
+        $categories = Category::withCount('products')->get();
 
         if ($request->ajax()) {
             return view('themes.xylo.partials.product-list', compact('products'))->render();

@@ -14,7 +14,7 @@
                     <div class="form-check mb-3">
                         <input class="form-check-input filter-input" type="checkbox" name="brand[]" value="{{ $brand->id }}">
                         <label class="form-check-label">
-                            {{ mb_convert_case($brand->translation->name ?? $brand->slug, MB_CASE_TITLE, "UTF-8") }}
+                            {{ mb_convert_case($brand->name ?? $brand->slug, MB_CASE_TITLE, "UTF-8") }}
                         </label>
                         <span class="text-muted">({{ $brand->products_count }})</span>
                     </div>
@@ -25,7 +25,7 @@
                     <div class="form-check mb-3">
                         <input class="form-check-input filter-input" type="checkbox" name="category[]" value="{{ $category->id }}">
                         <label class="form-check-label">
-                            {{ mb_convert_case($category->translation->name ?? $category->slug, MB_CASE_TITLE, "UTF-8") }}
+                            {{ mb_convert_case($category->name ?? $category->slug, MB_CASE_TITLE, "UTF-8") }}
                         </label>
                         <span class="text-muted">({{ $category->products_count }})</span>
                     </div>
