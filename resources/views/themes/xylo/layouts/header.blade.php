@@ -55,7 +55,7 @@
 
             <div class="col-md-4 d-flex justify-content-end align-items-center gap-3">
                 <!-- Language Selector -->
-                <form action="{{ route('change.store.language') }}" method="POST">
+                {{-- <form action="{{ route('change.store.language') }}" method="POST">
                     @csrf
                     <select name="lang" class="form-select form-select-sm font-style" onchange="this.form.submit()">
                         <option value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }}>EN</option>
@@ -63,7 +63,7 @@
                         <option value="es" {{ app()->getLocale() == 'es' ? 'selected' : '' }}>ES</option>
                         <option value="de" {{ app()->getLocale() == 'de' ? 'selected' : '' }}>DE</option>
                     </select>
-                </form>
+                </form> --}}
 
                 <!-- Currency Selector -->
                 <form action="{{ route('change.currency') }}" method="POST">

@@ -22,6 +22,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [RegisterController::class, 'showRegistrationForm'])->name('customer.register');
 Route::post('/', [RegisterController::class, 'register']);
 
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('login', [LoginController::class, 'login'])->name('customer.login');
+
 Route::get('/home', [StoreController::class, 'index'])->name('xylo.home');
 Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product.show');
 Route::post('/change-currency', [CurrencyController::class, 'changeCurrency'])->name('change.currency');
@@ -55,8 +58,8 @@ Route::prefix('customer')->name('customer.')->group(function () {
 
     // Guest routes
     Route::middleware('guest:customer')->group(function () {
-        Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
-        Route::post('login', [LoginController::class, 'login']);
+        // Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+        // Route::post('login', [LoginController::class, 'login']);
 
         // Route::get('/', [RegisterController::class, 'showRegistrationForm'])->name('register');
         // Route::post('/', [RegisterController::class, 'register']);
