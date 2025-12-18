@@ -5,7 +5,7 @@
 
 <div class="container py-5">
     <h1 class="sec-heading mb-5">{{ __('store.wishlist.title') }}</h1>
-
+    <!-- search for products in wishlist -->
     @if($products->isEmpty())
         <div class="alert alert-info">{{ __('store.wishlist.empty') }}</div>
     @else
